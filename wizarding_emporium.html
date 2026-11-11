@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wizarding Emporium</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'IM Fell English', Georgia, serif;
+    background-color: #19120f;
+    color: #f1e5ca;
+    font-size: 18px;
+}
+
+header {
+    background-color: #100b0a;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    padding: 10px;
+}
+
+.brand {
+    color: #e5c68e;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navlinks {
+    margin: 20px;
+}
+
+.navlinks a {
+    color: #f3e8d3;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.navlinks a:hover {
+    color: #e4c080;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cart-button {
+    background-color: #281a16;
+    color: #e5c68e;
+    border: 1px solid #c69b5c;
+}
+
+.hero {
+    background-color: #321719;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    color: #d8b56a;
+    font-size: 45px;
+}
+
+.hero p {
+    color: #d9c7a2;
+    font-size: 20px;
+}
+
+.gold-button {
+    background-color: #c69b5c;
+    color: #2d2117;
+    padding: 12px;
+    text-decoration: none;
+    border: 1px solid #c69b5c;
+}
+
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    color: #d8b56a;
+}
+
+.section-heading p {
+    color: #d9c7a2;
+}
+
+.intro-card {
+    background-color: #281a16;
+    border: 1px solid #c69b5c;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    width: 25%;
+}
+
+.intro-card h3 {
+    color: #d8b56a;
+}
+
+.intro-card p {
+    color: #d9c7a2;
+}
+
+.symbol {
+    font-size: 30px;
+    color: #a87935;
+}
+
+.shop-tools {
+    margin: 20px;
+    text-align: center;
+}
+
+.shop-tools input,
+.shop-tools select {
+    padding: 10px;
+    margin: 5px;
+}
+
+.filter-btn {
+    background-color: #f8f0df;
+    color: #5b4631;
+    border: 1px solid #98703b;
+    margin: 3px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #8d6638;
+    color: white;
+}
+
+.products {
+    text-align: center;
+}
+
+.product {
+    background-color: #281a16;
+    border: 1px solid #98703b;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+
+.product-art {
+    background-color: #f2e6cd;
+    padding: 10px;
+    height: 180px;
+}
+
+.product-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 10px;
+}
+
+.product h3 {
+    color: #d8b56a;
+}
+
+.tag {
+    color: #98703b;
+}
+
+.rating {
+    color: #a87935;
+}
+
+.price {
+    color: #d8b56a;
+    font-size: 20px;
+}
+
+.add-btn {
+    background-color: #281a16;
+    color: #d8b56a;
+    border: 1px solid #98703b;
+}
+
+.wish {
+    background-color: #281a16;
+    color: #98703b;
+    border: 1px solid #98703b;
+}
+
+.wish.active {
+    color: red;
+}
+
+.houses {
+    background-color: #321719;
+    padding: 20px;
+    text-align: center;
+}
+
+.house {
+    background-color: #281a16;
+    border: 1px solid #c69b5c;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    width: 18%;
+}
+
+.house h3 {
+    color: #ead2a4;
+}
+
+.house p {
+    color: #e0d0b8;
+}
+
+.crest {
+    font-size: 35px;
+}
+
+.newsletter {
+    background-color: #281a16;
+    border: 1px solid #c69b5c;
+    padding: 30px;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+}
+
+.newsletter h2 {
+    color: #d8b56a;
+}
+
+.newsletter p {
+    color: #d9c7a2;
+}
+
+.newsletter input {
+    padding: 10px;
+}
+
+footer {
+    background-color: #100b0a;
+    color: #d9c7a2;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay {
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.cart-panel {
+    display: none;
+    background-color: #f6eddb;
+    color: #382719;
+    padding: 20px;
+    border: 1px solid #98703b;
+}
+
+.cart-panel.show {
+    display: block;
+}
+
+.cart-head h2 {
+    color: #684927;
+}
+
+.close-cart {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}
+
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #98703b;
+}
+
+.qty button {
+    background-color: #e5d4b5;
+    border: none;
+    margin: 5px;
+}
+
+.remove {
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+
+.cart-bottom {
+    padding: 15px;
+}
+
+.checkout {
+    background-color: #a87935;
+    color: white;
+    width: 100%;
+    border: none;
+}
+
+.empty {
+    text-align: center;
+    color: #766650;
+}
+
+.toast {
+    display: none;
+    background-color: #a87935;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.toast.show {
+    display: block;
+}
+
+
+/* Requested typography and layout refinements */
+body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+h1, h2, h3,
+.brand,
+.navlinks,
+.cart-button {
+    font-family: 'Cinzel', Georgia, serif;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.navlinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 0;
+}
+
+.navlinks a {
+    margin: 0;
+}
+
+.cart-button {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    margin-top: 16px;
+}
+
+.add-btn {
+    margin-left: 12px;
+    white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navlinks {
+        flex-wrap: wrap;
+    }
+
+    .cart-button {
+        margin-left: 0;
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+<nav class="nav">
+<a class="brand" href="#home">THE WIZARDING EMPORIUM</a>
+<div class="navlinks"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#houses">Houses</a><a href="#owlpost">Owl Post</a></div>
+<button class="cart-button" id="openCart">BAG (<span id="cartCount">0</span>)</button>
+</nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="hero-inner">
+<div class="eyebrow">ESTABLISHED IN THE WIZARDING WORLD</div>
+<h1>Where Magic<br>Finds Its Way Home</h1>
+<p>Discover curious treasures, enchanted keepsakes and little pieces of the wizarding world.</p>
+<a class="gold-button" href="#shop">EXPLORE THE COLLECTION</a>
+</div></section>
+<section class="section">
+<div class="section-heading"><h2>A Little Enchantment</h2><p>For curious minds and collectors of the extraordinary.</p></div>
+<div class="intro-grid">
+<article class="intro-card"><div class="symbol">✧</div><h3>Curated Curiosities</h3><p>Discover magical keepsakes inspired by a world beyond the ordinary.</p></article>
+<article class="intro-card"><div class="symbol">⌑</div><h3>Made for Collectors</h3><p>Find special pieces to display, treasure and pass along.</p></article>
+<article class="intro-card"><div class="symbol">☽</div><h3>A Touch of Wonder</h3><p>Bring a little wizarding atmosphere into your everyday world.</p></article>
+</div></section>
+<section class="section" id="shop">
+<div class="section-heading"><h2>Shop the Collection</h2><p>Choose your next treasured magical object.</p></div>
+<div class="shop-tools">
+<input id="searchInput" type="search" placeholder="Search magical treasures..." aria-label="Search products">
+<div class="filters">
+<button class="filter-btn active" data-filter="All">All</button>
+<button class="filter-btn" data-filter="Wands">Wands</button>
+<button class="filter-btn" data-filter="Accessories">Accessories</button>
+<button class="filter-btn" data-filter="Clothing">Clothing</button>
+<button class="filter-btn" data-filter="Books & Stationery">Stationery</button>
+<button class="filter-btn" data-filter="Home & Decor">Home & Decor</button>
+<button class="filter-btn" data-filter="Souvenirs">Souvenirs</button>
+</div>
+<select id="sortSelect" aria-label="Sort products"><option value="default">Sort: Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select>
+</div>
+<div class="products" id="productGrid"></div>
+</section>
+<section class="houses" id="houses"><div class="section">
+<div class="section-heading"><h2>The Four Houses</h2><p>Every house has its own kind of magic.</p></div>
+<div class="house-grid">
+<article class="house"><div class="crest">🦁</div><h3>Gryffindor</h3><p>Bravery · Courage · Determination</p></article>
+<article class="house"><div class="crest">🦅</div><h3>Ravenclaw</h3><p>Wisdom · Wit · Wonder</p></article>
+<article class="house"><div class="crest">🦡</div><h3>Hufflepuff</h3><p>Loyalty · Patience · Fairness</p></article>
+<article class="house"><div class="crest">🐍</div><h3>Slytherin</h3><p>Ambition · Cunning · Resourcefulness</p></article>
+</div></div></section>
+<section class="section" id="owlpost"><div class="newsletter">
+<h2>Send Word by Owl</h2><p>Join our little circle for new arrivals, curious finds and occasional magical surprises.</p>
+<form id="newsletterForm"><input type="email" placeholder="Your email address" required><button class="gold-button" type="submit">JOIN THE POST</button></form>
+</div></section>
+</main>
+<footer>THE WIZARDING EMPORIUM · A MAGICAL DEMO STORE · NOT AN OFFICIAL HARRY POTTER STORE</footer>
+<div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel">
+<div class="cart-head"><h2>Your Shopping Bag</h2><button class="close-cart" id="closeCart" aria-label="Close cart">×</button></div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-bottom"><div class="total"><span>Subtotal</span><span id="cartTotal">$0.00</span></div><button class="checkout" id="checkout">CONTINUE TO CHECKOUT</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+<script>
+const products = [
+{id:1,name:"Harry Potter's Wand",price:39.99,category:'Wands',tag:'COLLECTOR FAVOURITE',image:'images/harry_wand.png'},
+{id:2,name:'Golden Snitch',price:18,category:'Accessories',tag:'MAGICAL FAVOURITE',image:'images/snitch.jpg'},
+{id:4,name:"Professor Dumbledore's Wand",price:39,category:'Wands',tag:'RARE COLLECTIBLE',image:'images/dumbledore_wand.png'},
+{id:5,name:'Butterbeer Tankard',price:22,category:'Home & Decor',tag:'HOGSMEADE FAVOURITE',image:'images/butterbeer_tankard.jpg'},
+{id:6,name:"Marauder's Map Journal",price:16,category:'Books & Stationery',tag:'SECRET NOTES',image:'images/marauders_map.jpg'},
+{id:7,name:'Time-Turner Necklace',price:29,category:'Accessories',tag:'TIMELESS TREASURE',image:'images/tt.png'},
+{id:9,name:'Hogwarts Wizard Robe',price:59,category:'Clothing',tag:'DRESS FOR THE OCCASION',image:'images/robe.jpg'},
+{id:10,name:'Enchanted Potion Set',price:32,category:'Home & Decor',tag:"POTION MASTER'S PICK",image:'images/potions.jpg'},
+{id:11,name:'Hogwarts Crest Mug',price:19,category:'Home & Decor',tag:'A CUP OF MAGIC',image:'images/crest_mug.jpg'},
+{id:13,name:'Hogwarts Snow Globe',price:28,category:'Souvenirs',tag:'MAGICAL KEEPSAKE',image:'images/snow_globe.jpg'},
+{id:14,name:'Hogwarts Crest Keychain',price:12,category:'Souvenirs',tag:'TAKE MAGIC WITH YOU',image:'images/crest_keychain.jpg'},
+{id:15,name:'Golden Snitch Bookmark',price:10,category:'Souvenirs',tag:'FOR BOOK LOVERS',image:'images/snitch_bookmark.jpg'},
+{id:16,name:'Chocolate Frog Box',price:15,category:'Souvenirs',tag:'HONEYDUKES SPECIAL',image:'images/choco_frog.jpg'},
+{id:17,name:'Hogwarts Express Miniature',price:35,category:'Souvenirs',tag:"COLLECTOR'S EDITION",image:'images/hogwarts_express.jpg'},
+{id:18,name:'Four Houses Enamel Pins',price:14,category:'Souvenirs',tag:'HOUSE PRIDE',image:'images/house_pins.jpg'},
+{id:19,name:'Gryffindor House Scarf',price:25,category:'Clothing',tag:'COURAGE · GRYFFINDOR',image:'images/griffyndor_scarf.jpg'},
+{id:20,name:'Slytherin House Scarf',price:25,category:'Clothing',tag:'AMBITION · SLYTHERIN',image:'images/slytherin_scarf.jpg'},
+{id:21,name:'Ravenclaw House Scarf',price:25,category:'Clothing',tag:'WISDOM · RAVENCLAW',image:'images/ravenclaw_scarf.jpg'},
+{id:22,name:'Hufflepuff House Scarf',price:25,category:'Clothing',tag:'LOYALTY · HUFFLEPUFF',image:'images/hufflepuff_scarf.jpg'},
+{id:37,name:'Hermione Granger\'s Wand',price:39,category:'Wands',tag:'BRIGHTEST WITCH',image:'images/hermione_wand.png'},
+{id:38,name:'Ron Weasley\'s Wand',price:35,category:'Wands',tag:'LOYAL FRIEND',image:'images/ron_wand.png'},
+{id:39,name:'Severus Snape\'s Wand',price:42,category:'Wands',tag:'POTION MASTER',image:'images/snape_wand.png'},
+{id:40,name:'Lord Voldemort\'s Wand',price:42,category:'Wands',tag:'THE DARK LORD',image:'images/voldemort_wand.png'},
+{id:41,name:'Draco Malfoy\'s Wand',price:39,category:'Wands',tag:'THE SLYTHERIN HEIR',image:'images/draco_wand.png'},
+{id:42,name:'Sirius Black\'s Wand',price:40,category:'Wands',tag:'PADFOOT',image:'images/sirius_wand.png'},
+{id:45,name:'Ginny Weasley\'s Wand',price:36,category:'Wands',tag:'FEARLESS WITCH',image:'images/ginny_wand.png'},
+{id:47,name:'Luna Lovegood\'s Wand',price:37,category:'Wands',tag:'DREAMER',image:'images/luna_wand.png'},
+{id:51,name:'Harry Potter\'s Round Glasses',price:18,category:'Accessories',tag:'ICONIC WIZARDING ACCESSORY',image:'images/glasses.jpg'}
+];
+let cart=[],activeFilter='All',wishlist=[];
+const grid=document.getElementById('productGrid');
+const cartPanel=document.getElementById('cartPanel');
+const overlay=document.getElementById('overlay');
+function renderProducts(){
+ let list=products.filter(p=>(activeFilter==='All'||p.category===activeFilter)&&p.name.toLowerCase().includes(document.getElementById('searchInput').value.toLowerCase()));
+ const sort=document.getElementById('sortSelect').value;
+ if(sort==='low')list.sort((a,b)=>a.price-b.price);
+ if(sort==='high')list.sort((a,b)=>b.price-a.price);
+ grid.innerHTML=list.length?list.map(p=>`
+ <article class="product">
+ <button class="wish ${wishlist.includes(p.id)?'active':''}" data-wish="${p.id}" aria-label="Toggle wishlist">${wishlist.includes(p.id)?'♥':'♡'}</button>
+ <div class="product-art"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.add('image-error');this.alt='Image unavailable';"></div>
+ <div class="product-info"><div class="tag">${p.tag}</div><h3>${p.name}</h3><div class="rating">★★★★★</div>
+ <div class="price-row"><span class="price">$${p.price.toFixed(2)}</span><button class="add-btn" data-add="${p.id}">ADD TO BAG</button></div></div></article>`).join(''):'<p class="empty">No treasures found. Try another search.</p>';
+}
+function renderCart(){
+ document.getElementById('cartCount').textContent=cart.reduce((n,i)=>n+i.qty,0);
+ document.getElementById('cartItems').innerHTML=cart.length?cart.map(i=>`
+ <div class="cart-item"><div><h3>${i.name}</h3><small>$${i.price.toFixed(2)} each</small>
+ <div class="qty"><button data-minus="${i.id}">−</button><span>${i.qty}</span><button data-plus="${i.id}">+</button></div></div>
+ <div><strong>$${(i.price*i.qty).toFixed(2)}</strong><br><button class="remove" data-remove="${i.id}">Remove</button></div></div>`).join(''):'<p class="empty">Your bag is waiting for a little magic.</p>';
+ document.getElementById('cartTotal').textContent='$'+cart.reduce((n,i)=>n+i.price*i.qty,0).toFixed(2);
+}
+function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
+function openCart(){cartPanel.classList.add('show');overlay.classList.add('show')}
+function closeCart(){cartPanel.classList.remove('show');overlay.classList.remove('show')}
+grid.addEventListener('click',e=>{
+ const add=e.target.closest('[data-add]'),wish=e.target.closest('[data-wish]');
+ if(add){const p=products.find(x=>x.id===Number(add.dataset.add));const found=cart.find(x=>x.id===p.id);if(found)found.qty++;else cart.push({...p,qty:1});renderCart();toast(p.name+' added to your bag.')}
+ if(wish){const id=Number(wish.dataset.wish);wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];renderProducts();toast(wishlist.includes(id)?'Added to your wishlist.':'Removed from wishlist.')}
+});
+document.getElementById('cartItems').addEventListener('click',e=>{
+ const id=Number(e.target.dataset.plus||e.target.dataset.minus||e.target.dataset.remove);if(!id)return;
+ const item=cart.find(x=>x.id===id);if(e.target.dataset.plus)item.qty++;if(e.target.dataset.minus)item.qty--;
+ if(e.target.dataset.remove||item.qty<=0)cart=cart.filter(x=>x.id!==id);renderCart();
+});
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');activeFilter=b.dataset.filter;renderProducts();
+}));
+document.getElementById('searchInput').addEventListener('input',renderProducts);
+document.getElementById('sortSelect').addEventListener('change',renderProducts);
+document.getElementById('openCart').addEventListener('click',openCart);
+document.getElementById('closeCart').addEventListener('click',closeCart);
+overlay.addEventListener('click',closeCart);
+document.getElementById('checkout').addEventListener('click',()=>{
+ if(!cart.length){toast('Your bag is empty.');return}
+ alert('This is a demo store. Checkout is not connected to a payment service.');
+});
+document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();toast('You are on the Owl Post list!');e.target.reset()});
+renderProducts();renderCart();
+</script>
+</body>
+</html>
